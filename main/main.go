@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	nums1 := []int{1, 2, 3}
-	nums2 := []int{}
-	m := 3
-	n := 0
-	solutions.Merge(nums1, m, nums2, n)
-	fmt.Println(nums1)
+	nums1 := []int{1, 1, 1, 2, 2, 3, 4}
+	res := solutions.RemoveDuplicates(nums1)
+	fmt.Println(res)
+	for i := 0; i < res; i++ {
+		fmt.Println(nums1[i])
+	}
 }
