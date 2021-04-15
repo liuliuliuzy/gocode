@@ -6,10 +6,7 @@ import (
 )
 
 func main() {
-	nums1 := []int{1, 1, 1, 2, 2, 3, 4}
-	res := solutions.RemoveDuplicates(nums1)
+	nums := []int{1, 1, 1, 0, 0, 0, 1, 1, 1, 1}
+	res := solutions.FindMaxConsecutiveOnes(nums)
 	fmt.Println(res)
-	for i := 0; i < res; i++ {
-		fmt.Println(nums1[i])
-	}
 }
