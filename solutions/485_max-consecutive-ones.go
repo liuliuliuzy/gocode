@@ -13,6 +13,9 @@ func findMaxConsecutiveOnes(nums []int) int {
 			tmp = 0
 		}
 	}
+	if tmp > res {
+		res = tmp
+	}
 	return res
 }
 
