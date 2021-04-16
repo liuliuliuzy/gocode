@@ -1,6 +1,6 @@
 package solutions
 
-import "fmt"
+import "reflect"
 
 // use hash table and sliding window
 func findSubstring(s string, words []string) []int {
@@ -9,14 +9,23 @@ func findSubstring(s string, words []string) []int {
 		return res
 	}
 	words_ht := make(map[string]int)
+	// establish hash table
 	for _, item := range words {
 		words_ht[item] += 1
 	}
 	// fmt.Print(words_ht)
-	total_len := len(words) * len(words[0])
-	for i := 0; i < len(s)-total_len; i++ {
+	one_word := len(words[0])
+	total_len := len(words) * one_word
+	for i := 0; i <= len(s)-total_len; i++ {
 		tmp_s := s[i : i+total_len]
-		fmt.Println(tmp_s)
+		tmp_ht := make(map[string]int)
+		for j := 0; j < total_len; j += one_word {
+			tmp_ht[tmp_s[j:j+one_word]] += 1
+		}
+		if reflect.DeepEqual(words_ht, tmp_ht) {
+			res = append(res, i)
+		}
+		// fmt.Println(tmp_s)
 	}
 	return res
 }
