@@ -27,7 +27,7 @@ func guessNumber(n int) int {
 	low := 1
 	high := n
 	myGuess := (low + high) / 2
-	guessRes := guess(myGuess, 3)
+	guessRes := guess(myGuess, 2)
 	times := 1
 	for guessRes != 0 && times < 5 {
 		fmt.Println(guessRes, low, high, myGuess)
@@ -36,8 +36,13 @@ func guessNumber(n int) int {
 		} else {
 			high = myGuess
 		}
+		//加个变量，防止一直猜同一个数字
+		last := myGuess
 		myGuess = (low + high) / 2
-		guessRes = guess(myGuess, 3)
+		if myGuess == last {
+			myGuess += 1
+		}
+		guessRes = guess(myGuess, 2)
 		times += 1
 	}
 	return myGuess
