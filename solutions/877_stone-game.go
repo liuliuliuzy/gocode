@@ -1,5 +1,7 @@
 package solutions
 
+import "goleetcode/mylibs"
+
 func StoneGame(piles []int) bool {
 	return stoneGame(piles)
 }
@@ -15,15 +17,8 @@ func stoneGame(piles []int) bool {
 	}
 	for i := length - 2; i >= 0; i-- {
 		for j := i + 1; j < length; j++ {
-			dp[i][j] = max(piles[i]-dp[i+1][j], piles[j]-dp[i][j-1])
+			dp[i][j] = mylibs.Max(piles[i]-dp[i+1][j], piles[j]-dp[i][j-1])
 		}
 	}
 	return dp[0][length-1] > 0
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
 }

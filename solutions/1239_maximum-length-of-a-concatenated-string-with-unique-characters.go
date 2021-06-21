@@ -2,6 +2,7 @@ package solutions
 
 import (
 	"fmt"
+	"goleetcode/mylibs"
 	"math/bits"
 )
 
@@ -26,7 +27,7 @@ func maxLength(arr []string) int {
 			strNum = strNum | (1 << uint32(str[i]-0x61))
 		}
 		// fmt.Printf("%032b\n", strNum)
-		if strNum != 0 && !isContain(arrSlice, strNum) {
+		if strNum != 0 && !mylibs.IsContain(arrSlice, strNum) {
 			arrSlice = append(arrSlice, strNum)
 		}
 	}
@@ -35,7 +36,7 @@ func maxLength(arr []string) int {
 	backtrack = func(index int, mask uint32) {
 		if index == len(arrSlice) {
 			fmt.Println(res, bits.OnesCount32(mask))
-			res = max(res, bits.OnesCount32(mask))
+			res = mylibs.Max(res, bits.OnesCount32(mask))
 			return
 		}
 		//回溯法的精髓在于，两条路都走
@@ -47,13 +48,4 @@ func maxLength(arr []string) int {
 	}
 	backtrack(0, 0)
 	return res
-}
-
-func isContain(arr []uint32, value uint32) bool {
-	for i := 0; i < len(arr); i++ {
-		if value == arr[i] {
-			return true
-		}
-	}
-	return false
 }
