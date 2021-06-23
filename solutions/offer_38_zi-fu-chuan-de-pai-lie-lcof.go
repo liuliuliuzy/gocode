@@ -48,7 +48,7 @@ func permutation(s string) []string {
 		mp[string(ch)] += 1
 	}
 	keys := make([]string, 0)
-	for k, _ := range mp {
+	for k := range mp {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
