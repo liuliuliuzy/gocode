@@ -26,3 +26,17 @@ func IsContain(arr []uint32, value uint32) bool {
 	}
 	return false
 }
+
+//辗转相除
+func Gcd(a, b int) int {
+	var tmp int
+	for {
+		tmp = a % b
+		if tmp > 0 {
+			a = b
+			b = tmp
+		} else {
+			return b
+		}
+	}
+}
