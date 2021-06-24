@@ -23,23 +23,24 @@ func maxPoints(points [][]int) int {
 				} else {
 					deltaX = 0
 				}
-			}
-			absX := deltaX
-			absY := deltaY
-			if deltaX < 0 {
-				absX = -1 * absX
-			}
-			if deltaY < 0 {
-				absY = -1 * absY
-			}
-			gcd := mylibs.Gcd(absX, absY)
-			if gcd > 1 {
-				deltaX = deltaX / gcd
-				deltaY = deltaY / gcd
-			}
-			if deltaX < 0 {
-				deltaX = -1 * deltaX
-				deltaY = -1 * deltaY
+			} else {
+				absX := deltaX
+				absY := deltaY
+				if deltaX < 0 {
+					absX = -1 * absX
+				}
+				if deltaY < 0 {
+					absY = -1 * absY
+				}
+				gcd := mylibs.Gcd(absX, absY)
+				if gcd > 1 {
+					deltaX = deltaX / gcd
+					deltaY = deltaY / gcd
+				}
+				if deltaX < 0 {
+					deltaX = -1 * deltaX
+					deltaY = -1 * deltaY
+				}
 			}
 			counts[[2]int{deltaX, deltaY}] += 1
 			if res < counts[[2]int{deltaX, deltaY}] {
