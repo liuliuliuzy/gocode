@@ -11,6 +11,10 @@ func maxPoints(points [][]int) int {
 	}
 	res := 0
 	for i := 0; i < len(points)-1; i++ {
+		//已经无法得到更大的答案了
+		if len(points)-i < res {
+			break
+		}
 		//记录的哈希表应该在一重循环里面创建
 		counts := make(map[[2]int]int)
 		for j := i + 1; j < len(points); j++ {
