@@ -2,7 +2,7 @@ package solutions
 
 //感觉本质上和走方格是一样的
 //4位数字
-//广度优先
+//广度优先，一层层向外扩散
 func openLock(deadends []string, target string) int {
 	res := 0
 	dis := 0
