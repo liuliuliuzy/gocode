@@ -23,6 +23,7 @@ func trap(height []int) int {
 			upFlag = false
 			if item.right > 0 {
 				subsets = append(subsets, item)
+				item.left = 
 			}
 		} else if height[i] > height[i-1] {
 			upFlag = true
