@@ -1,38 +1,32 @@
 package solutions
 
-import "fmt"
-
 //很有意思的一道题
 //寻找区间
-func trap(height []int) int {
-	type pair struct {
-		left  int
-		right int
-	}
-	subsets := []pair{}
-	item := pair{-1, -1}
-	upFlag := false
-	for i := 1; i < len(height); i++ {
-		if height[i] < height[i-1] {
-			//之前处于上升阶段
-			if upFlag {
-				item.right = i - 1
-			} else {
-				item.left = i - 1
+//单调栈
+func trap(height []int) (ans int) {
+	stack := []int{}
+	for i, h := range height {
+		for len(stack) > 0 && h > height[stack[len(stack)-1]] {
+			top := stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if len(stack) == 0 {
+				break
 			}
-			upFlag = false
-			if item.right > 0 {
-				subsets = append(subsets, item)
-				item.left = 
-			}
-		} else if height[i] > height[i-1] {
-			upFlag = true
-		} else {
-			continue
+			left := stack[len(stack)-1]
+			curWidth := i - left - 1
+			curHeight := min(height[left], h) - height[top]
+			ans += curWidth * curHeight
 		}
+		stack = append(stack, i)
 	}
-	fmt.Println(subsets)
-	return 0
+	return
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func Trap(height []int) int {
