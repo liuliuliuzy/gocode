@@ -15,13 +15,6 @@ func minPairSum(nums []int) int {
 	return res
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
 func MinPairSum(nums []int) int {
 	return minPairSum(nums)
 }
