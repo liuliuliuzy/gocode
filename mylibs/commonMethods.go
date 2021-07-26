@@ -68,3 +68,25 @@ func findIndex(data []int, start, end int) int {
 	data[l] = tmp
 	return l
 }
+
+//nums为递增数组，返回nums中最小的大于等于target的元素索引，如果不存在，则返回len(nums)-1
+func MyBiSearch(nums []int, target int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	left := 0
+	right := len(nums) - 1
+	for left < right {
+		//这一步取整操作，mid>=left
+		mid := (left + right) / 2
+		if nums[mid] < target {
+			left = mid + 1
+		} else {
+			right = mid
+		}
+	}
+	if nums[left] < target {
+		left++
+	}
+	return left
+}
