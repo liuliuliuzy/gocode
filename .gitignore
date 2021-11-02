@@ -1,4 +1,4 @@
 main/main.go
-main/main
-main/main.exe
+**/main
+**/main.exe
 .vscode/*
