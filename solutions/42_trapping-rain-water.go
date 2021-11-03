@@ -52,6 +52,7 @@ package solutions
 // }
 
 //解法三：双指针，可以看作是解法一的空间优化，用指针与变量来代替数组
+//非常巧妙的一种解法
 func trap(height []int) int {
 	ans := 0
 	n := len(height)
