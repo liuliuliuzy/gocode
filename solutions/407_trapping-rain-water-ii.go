@@ -52,7 +52,6 @@ func trapRainWater(heightMap [][]int) int {
 				heap.Push(h, cell{v, i, j})
 				vis[i][j] = true //mark
 			}
-
 		}
 	}
 
