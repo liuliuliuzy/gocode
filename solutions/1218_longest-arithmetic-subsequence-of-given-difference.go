@@ -10,6 +10,7 @@ func longestSubsequence(arr []int, difference int) (ans int) {
 			ans = dp[v]
 		}
 	}
+	return
 }
 func LongestSubsequence(arr []int, difference int) int {
 	return longestSubsequence(arr, difference)
