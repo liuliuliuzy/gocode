@@ -1,5 +1,7 @@
 package mylibs
 
+import "fmt"
+
 /*一些common methods*/
 
 func IsIn(slices [][2]int, item [2]int) (int, bool) {
@@ -44,6 +46,7 @@ func Gcd(a, b int) int {
 func QuickSort(data []int, start, end int) {
 	if start < end {
 		midIndex := findIndex(data, start, end)
+		fmt.Println(data)
 		QuickSort(data, start, midIndex-1)
 		QuickSort(data, midIndex+1, end)
 	}
