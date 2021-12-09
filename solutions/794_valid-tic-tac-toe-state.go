@@ -1,15 +1,5 @@
 package solutions
 
-// import "fmt"
-
-// func abs(x, y int) int {
-// 	if x-y >= 0 {
-// 		return x - y
-// 	} else {
-// 		return y - x
-// 	}
-// }
-
 func isWin(role uint8, board []string) bool {
 	if board[0][0] == role && board[0][1] == role {
 		if board[0][2] == role {
@@ -49,6 +39,10 @@ func isWin(role uint8, board []string) bool {
 	return false
 }
 
+/*
+有些坑点：
+'X'是先下的一方
+*/
 func validTicTacToe(board []string) bool {
 	xCount, oCount := 0, 0
 	// count 'X' and 'O'
@@ -62,18 +56,18 @@ func validTicTacToe(board []string) bool {
 			}
 		}
 	}
-	if xCount-oCount < 0 || xCount-oCount  > 1 {
+	if xCount-oCount < 0 || xCount-oCount > 1 {
 		return false
 	}
 	// 判断胜利条件是否成立
 	// 有8种胜利场景，直接枚举就行吧
 	if isWin('X', board) {
-		if isWin('O', board) {
+		if xCount-oCount != 1 || isWin('O', board) {
 			return false
 		}
 	}
 	if isWin('O', board) {
-		if isWin('X', board) {
+		if xCount != oCount || isWin('X', board) {
 			return false
 		}
 	}
