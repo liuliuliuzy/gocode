@@ -20,6 +20,13 @@ func Max(x, y int) int {
 	return y
 }
 
+func Min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
 func IsContain(arr []uint32, value uint32) bool {
 	for i := 0; i < len(arr); i++ {
 		if value == arr[i] {
