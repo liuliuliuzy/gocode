@@ -4,14 +4,6 @@ import (
 	"fmt"
 )
 
-/**
- * Definition for singly-linked list.
- */
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 //合并有序链表 空指针：nil
 //最简单的思路，创建新链表，往后加节点
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
