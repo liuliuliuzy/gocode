@@ -1,5 +1,6 @@
 package uglynumber
 
+// 纯数学计算
 func isUgly(n int) bool {
 	if n <= 0 {
 		return false
